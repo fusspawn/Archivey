@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.22823.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchiveyServer", "Archivey\ArchiveyServer.csproj", "{D0542C87-89DF-4E6E-B384-A1DB11427CEE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchiveyClient", "ArchiveyClient\ArchiveyClient.csproj", "{441596D6-3721-4DBF-A8C1-C981B46B14F0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D0542C87-89DF-4E6E-B384-A1DB11427CEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0542C87-89DF-4E6E-B384-A1DB11427CEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0542C87-89DF-4E6E-B384-A1DB11427CEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0542C87-89DF-4E6E-B384-A1DB11427CEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{441596D6-3721-4DBF-A8C1-C981B46B14F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{441596D6-3721-4DBF-A8C1-C981B46B14F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{441596D6-3721-4DBF-A8C1-C981B46B14F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{441596D6-3721-4DBF-A8C1-C981B46B14F0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

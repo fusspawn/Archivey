@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DBModel">
+  <DataContextMoniker Name="/DBModelDataContext" />
+  <nestedChildShapes>
+    <classShape Id="833b7850-f6e4-4de7-a062-f788d02de94a" absoluteBounds="5.5, 1.25, 2, 1.9631982421874996">
+      <DataClassMoniker Name="/DBModelDataContext/User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="62878ebb-b984-4df4-97a4-92e3e1a91b06" absoluteBounds="5.515, 1.71, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="aba80f26-368f-4d1d-b626-4b86858d5dc3" absoluteBounds="3.75, 3.625, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/DBModelDataContext/Server" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bb1eddbe-26c5-4e5c-ae97-9cdeb40afef9" absoluteBounds="3.765, 4.085, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.6249995 : 3.625); (4.6249995 : 2.23159912109375); (5.5 : 2.23159912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DBModelDataContext/Server/Server_User" />
+      <nodes>
+        <classShapeMoniker Id="aba80f26-368f-4d1d-b626-4b86858d5dc3" />
+        <classShapeMoniker Id="833b7850-f6e4-4de7-a062-f788d02de94a" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="3cd56ebc-d0d9-4b03-9d95-f886863b5195" absoluteBounds="6.875, 4.125, 2, 1.3862939453125">
+      <DataClassMoniker Name="/DBModelDataContext/Upload" />
+      <nestedChildShapes>
+        <elementListCompartment Id="de20e8cd-ab27-4f82-8254-d5bb3b1b2eb6" absoluteBounds="6.8900000000000006, 4.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.75 : 4.81814697265625); (6.875 : 4.81814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DBModelDataContext/Server/Server_Upload" />
+      <nodes>
+        <classShapeMoniker Id="aba80f26-368f-4d1d-b626-4b86858d5dc3" />
+        <classShapeMoniker Id="3cd56ebc-d0d9-4b03-9d95-f886863b5195" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
