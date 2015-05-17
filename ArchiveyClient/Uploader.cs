@@ -24,7 +24,10 @@ namespace ArchiveyClient
             TemporaryStorage = TempLocation;
         }
 
-        public Uploader() { }
+        public Uploader() {
+            UploadURL = Config.Get().api_url;
+            APIKey = Config.Get().api_key;
+        }
 
         public static void CopyFilesRecursively(DirectoryInfo source, DirectoryInfo target)
         {
@@ -37,6 +40,7 @@ namespace ArchiveyClient
         private void CreateFile()
         {
             Console.WriteLine("Creating UploadFile");
+
             if (!System.IO.Directory.Exists($"{TemporaryStorage}")) {
                 System.IO.Directory.CreateDirectory($"{TemporaryStorage}");
             }
@@ -44,15 +48,19 @@ namespace ArchiveyClient
             {
                 System.IO.Directory.CreateDirectory($"{TemporaryStorage}/archive");
             }
+
             CopyFilesRecursively(new DirectoryInfo(BackupLocation), new DirectoryInfo($"{TemporaryStorage}/archive"));
-            ZipFile.CreateFromDirectory($"{TemporaryStorage}/archive", $"{TemporaryStorage}/backup.zip");
+            ZipFile.CreateFromDirectory($"{TemporaryStorage}/archive", 
+                $"{TemporaryStorage}/backup.zip", CompressionLevel.Optimal, false);
+
             Console.WriteLine("Upload file created");
         }
 
         public bool Upload() {
+            Console.WriteLine("Trying to upload to.. " + $"{UploadURL}upload/{APIKey}/examplehash");
             Console.WriteLine("Uploading file.. Make take a while");
             string hash = GetMD5();
-            string result = UploadClient.UploadFile($"{UploadURL}{APIKey}/{hash}", $"{TemporaryStorage}/backup.zip").ToString();
+            string result = UploadClient.UploadFile($"{UploadURL}upload/{APIKey}/{hash}", $"{TemporaryStorage}/backup.zip").ToString();
             Console.WriteLine($"Uploaded Result was: {result}");
             return result == "1";
         }
