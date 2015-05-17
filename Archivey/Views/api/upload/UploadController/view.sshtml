@@ -6,7 +6,9 @@
 				<thead>
 					<tr>
 					    <td> Version # </td>
-						<td> UploadedAt </td>						
+						<td> UploadedAt </td>		
+						<td> Complete </td>
+						<td> Succesfull </td>				
 						<td> Tools </td>
 					</tr>
 				</thead>
@@ -21,6 +23,8 @@
 							<tr>
 								<td> @Current.Id </td>
 								<td> @Current.UploadedAt </td>
+								<td> @Current.IsComplete </td>
+								<td> @Current.Success </td>
 								<td>
 									<!-- <form method="POST" action="http://localhost:8080/api/server/delete/@Current.Id/@Current.APIKey">
 										<input type="submit" value="delete" />

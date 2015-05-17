@@ -593,6 +593,12 @@ namespace Archivey.Models
 		
 		private System.DateTime _UploadedAt;
 		
+		private string _Hash;
+		
+		private bool _IsComplete;
+		
+		private bool _Success;
+		
 		private EntityRef<Server> _Server;
 		
     #region Extensibility Method Definitions
@@ -605,6 +611,12 @@ namespace Archivey.Models
     partial void OnServerIdChanged();
     partial void OnUploadedAtChanging(System.DateTime value);
     partial void OnUploadedAtChanged();
+    partial void OnHashChanging(string value);
+    partial void OnHashChanged();
+    partial void OnIsCompleteChanging(bool value);
+    partial void OnIsCompleteChanged();
+    partial void OnSuccessChanging(bool value);
+    partial void OnSuccessChanged();
     #endregion
 		
 		public Upload()
@@ -673,6 +685,66 @@ namespace Archivey.Models
 					this._UploadedAt = value;
 					this.SendPropertyChanged("UploadedAt");
 					this.OnUploadedAtChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Hash", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Hash
+		{
+			get
+			{
+				return this._Hash;
+			}
+			set
+			{
+				if ((this._Hash != value))
+				{
+					this.OnHashChanging(value);
+					this.SendPropertyChanging();
+					this._Hash = value;
+					this.SendPropertyChanged("Hash");
+					this.OnHashChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsComplete", DbType="Bit NOT NULL")]
+		public bool IsComplete
+		{
+			get
+			{
+				return this._IsComplete;
+			}
+			set
+			{
+				if ((this._IsComplete != value))
+				{
+					this.OnIsCompleteChanging(value);
+					this.SendPropertyChanging();
+					this._IsComplete = value;
+					this.SendPropertyChanged("IsComplete");
+					this.OnIsCompleteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Success", DbType="Bit NOT NULL")]
+		public bool Success
+		{
+			get
+			{
+				return this._Success;
+			}
+			set
+			{
+				if ((this._Success != value))
+				{
+					this.OnSuccessChanging(value);
+					this.SendPropertyChanging();
+					this._Success = value;
+					this.SendPropertyChanged("Success");
+					this.OnSuccessChanged();
 				}
 			}
 		}

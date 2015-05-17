@@ -29,6 +29,9 @@
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="ServerId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="UploadedAt" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Hash" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IsComplete" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Success" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="Server_Upload" Member="Server" ThisKey="ServerId" OtherKey="Id" Type="Server" IsForeignKey="true" />
     </Type>
   </Table>
