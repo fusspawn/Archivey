@@ -27,6 +27,8 @@ namespace ArchiveyClient
         public Uploader() {
             UploadURL = Config.Get().api_url;
             APIKey = Config.Get().api_key;
+            BackupLocation = Config.Get().backupdir;
+            TemporaryStorage = Config.Get().tempdir;
         }
 
         public static void CopyFilesRecursively(DirectoryInfo source, DirectoryInfo target)
@@ -34,7 +36,7 @@ namespace ArchiveyClient
             foreach (DirectoryInfo dir in source.GetDirectories())
                 CopyFilesRecursively(dir, target.CreateSubdirectory(dir.Name));
             foreach (FileInfo file in source.GetFiles())
-                file.CopyTo(Path.Combine(target.FullName, file.Name));
+                file.CopyTo(Path.Combine(target.FullName, file.Name), true);
         }
 
         private void CreateFile()
@@ -50,6 +52,7 @@ namespace ArchiveyClient
             }
 
             CopyFilesRecursively(new DirectoryInfo(BackupLocation), new DirectoryInfo($"{TemporaryStorage}/archive"));
+           
             ZipFile.CreateFromDirectory($"{TemporaryStorage}/archive", 
                 $"{TemporaryStorage}/backup.zip", CompressionLevel.Optimal, false);
 
@@ -80,10 +83,14 @@ namespace ArchiveyClient
 
 
         public void Tick() {
+
             try
             {
+                CleanUp(); //Ensure Clean Slate
+                CommandRunner.PreCommand();
                 CreateFile();
                 Upload();
+                CommandRunner.PostCommand();
             }
             catch (OutOfMemoryException E)
             {

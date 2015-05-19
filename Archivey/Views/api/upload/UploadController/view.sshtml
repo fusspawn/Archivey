@@ -26,7 +26,7 @@
 								<td> @Current.IsComplete </td>
 								<td> @Current.Success </td>
 								<td>
-									<!-- <form method="POST" action="http://localhost:8080/api/server/delete/@Current.Id/@Current.APIKey">
+									<!-- <form method="POST" action="~/api/server/delete/@Current.Id/@Current.APIKey">
 										<input type="submit" value="delete" />
 									</form> -->
 								</td>

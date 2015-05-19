@@ -14,10 +14,11 @@ namespace Archivey
         public NancyHost Host;
 
         public ArchiveyServer() {
-            Host = new NancyHost(new Uri("http://localhost:8080"));
+            Host = new NancyHost(new Uri(Config.Get().BindTo));
         }
 
         public void Init() {
+            StaticConfiguration.DisableErrorTraces = false;
             Host.Start();
         }
     }

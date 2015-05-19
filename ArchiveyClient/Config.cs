@@ -12,7 +12,12 @@ namespace ArchiveyClient
     {
         public string api_url = "http://localhost:8080/api/";
         public string api_key = "00aabe80-d303-4888-827d-1bc694bf01e2";
-        
+        public string pre_command = "";
+        public string post_command = "";
+        public string backupdir = "./";
+        public string tempdir = "./tmp";
+        public bool UseMultipart = true;
+
         [JsonIgnore]
         public string UploadUrl {
             get { return api_url + api_key + "/"; }

@@ -13,9 +13,15 @@ namespace ArchiveyClient
 
         static void Main(string[] args)
         {
-            Uploader Upload = new Uploader();
-            Upload.Tick();
-            Console.ReadLine();
+            if (!Config.Get().UseMultipart)
+            {
+                Uploader Upload = new Uploader();
+                Upload.Tick();
+            }
+            else {
+                MultipartUploader Upload = new MultipartUploader();
+                Upload.Tick();
+            }
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿@Master['Index.sshtml']
 @Section['Content']
     <h2> Add Server </h2>
-		<form class="form-inline" method="POST" action="http://localhost:8080/api/server/new">
+		<form class="form-inline" method="POST" action="~/api/server/new">
       <div class="form-group">
         <label for="Name"> Name </label>
         <input type="text" id="Name" name="Name"/>
@@ -40,10 +40,10 @@
 								<td> @Current.IP </td>
 							    <td> @Current.APIKey </td>
 								<td>
-									<form method="POST" action="http://localhost:8080/api/server/delete/@Current.Id/@Current.APIKey">
+									<form method="POST" action="~/api/server/delete/@Current.Id/@Current.APIKey">
 										<input type="submit" value="delete" />
 									</form>
-									<form method="POST" action="http://localhost:8080/api/server/revokeapi/@Current.Id/@Current.APIKey">
+									<form method="POST" action="~/api/server/revokeapi/@Current.Id/@Current.APIKey">
 									    <input type="submit" value="revoke api" />
 									</form>
 								</td>
